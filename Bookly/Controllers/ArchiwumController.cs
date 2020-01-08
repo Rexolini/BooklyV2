@@ -10,6 +10,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Bookly.Controllers
 {
@@ -22,7 +23,7 @@ namespace Bookly.Controllers
         [Authorize(Roles ="Pracownik")]
         public ActionResult Index()
         {
-            var szukajWArchiwum = db.Archiwa.Include(s => s.Czytelnik );
+            var szukajWArchiwum = db.Archiwa.Include(a => a.Czytelnik);
             return View(szukajWArchiwum.ToList());
         }
         public ActionResult UzytkownikIndex(string uzytkownikid)
