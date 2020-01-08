@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookly.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,21 @@ namespace Bookly.Controllers
 {
     public class HomeController : Controller
     {
+        AppDbContext db = new AppDbContext();
         public ActionResult Index()
+        {
+            var books = db.Ksiazki.ToList().OrderByDescending(b => b.DodajDate).Take(3);
+            return View(books);
+        }
+
+        public ActionResult Error()
         {
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Yourrrr application description page.";
 
             return View();
         }
