@@ -1,0 +1,22 @@
+﻿@model Bookly.Models.WyslijKodViewModel
+@{
+    ViewBag.Title = "Wyslij";
+}
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("WyslijKod", "Konto", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("zapamietajMnie", @Model.ZapamietajMnie)
+    <h4>Wyslij kod </h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            Wybierz dwuetapowego dostawcę autentykacji.
+            @Html.DropDownListFor(model => model.SelectedProvider, Model.Providers)
+            <input type="submit" value="Potwierdz" class="btn btn-default" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

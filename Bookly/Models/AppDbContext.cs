@@ -28,6 +28,8 @@ namespace Bookly.Models
         {
             return new AppDbContext();
         }
+
+        public System.Data.Entity.DbSet<Bookly.Models.Uzytkownik> Uzytkowniks { get; set; }
     }
 
     public static class ZarzadzanieTozsamoscia

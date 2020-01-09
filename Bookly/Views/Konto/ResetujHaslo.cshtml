@@ -1,0 +1,40 @@
+﻿
+@model Bookly.Models.ResetujHasloViewModel
+@{
+    ViewBag.Title = "Resetuj Haslo";
+}
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("Resetuj Haslo", "Konto", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Resetuj Hasło</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Code)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label(m => m.Haslo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Haslo, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label(m => m.PotwierdzenieHasla, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.PotwierdzenieHasla, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="ResetujHaslo" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+

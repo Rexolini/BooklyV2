@@ -1,0 +1,45 @@
+﻿
+@model Bookly.Models.User
+@{
+    ViewBag.Title = "UzytkownikDetale";
+}
+<h2>@ViewBag.Title:</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(model => model.Imie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+        <dt>
+            @Html.DisplayName(model => model.Nazwisko)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayName(model => model.PotwierdzanieEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PotwierdzanieEmail)
+        </dd>
+        <dt>
+            @Html.DisplayName(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Powrot do Listy", "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Panel Pracownika", "Edytuj", new { id = Model.Id }, new { @class = "btn btn-info" })
+</p>
